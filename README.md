@@ -15,3 +15,10 @@ This project creates sections dynamically with sample content after page is load
 When you scroll the page the active section inside the viewport is highlighted. 
 In the navigation bar there are references to all the sections if you want to view a certain section click the link
 and section appear inside the viewport using scroll event.
+If you want test for more sections to display change:
+
+```
+const totSections = 4; // tot sections
+```
+
+line 25 of the js/app.js file.

@@ -22,7 +22,7 @@
  * Define Global Variables
  * 
 */
-const totSections = 6; // tot sections
+const totSections = 4; // tot sections
 const sections = []; // global structure for sections
 let currentActiveSection; // contain object reference to current section
 let currentActiveNavItem; // contain object reference to current navbar item
