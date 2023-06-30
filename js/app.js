@@ -24,8 +24,8 @@
 */
 const totSections = 6; // tot sections
 const sections = []; // global structure for sections
-let currentActiveSection; // contain object reference to curretn section
-
+let currentActiveSection; // contain object reference to current section
+let currentActiveNavItem; // contain object reference to current navbar item
 /**
  * End Global Variables
  * Start Helper Functions
@@ -143,15 +143,25 @@ function scrollCallBack(){
     sections.forEach( (sectionElement) => {
         sectionRect = document.querySelector(`#${sectionElement.sectionName}${sectionElement.sectionNum}`).getBoundingClientRect();
         
-        console.log(`${sectionElement.sectionNum}, top: ${sectionRect.top}, bottom: ${sectionRect.bottom}, left: ${sectionRect.left}, right: ${sectionRect.right}, width: ${sectionRect.width}, height: ${sectionRect.height}`);
+        // console.log(`${sectionElement.sectionNum}, top: ${sectionRect.top}, bottom: ${sectionRect.bottom}, left: ${sectionRect.left}, right: ${sectionRect.right}, width: ${sectionRect.width}, height: ${sectionRect.height}`);
 
-        if (!(sectionRect.top < 0) && (sectionRect.top <= 100)){
+        if (!(sectionRect.top < 0) && (sectionRect.top <= 130)){
             // console.log(`#${sectionElement.sectionName}${sectionElement.sectionNum} VISIBLE`);
+
+            // section 
             if (currentActiveSection){
                 currentActiveSection.classList.remove('your-active-class');
             }
             currentActiveSection = document.querySelector(`#${sectionElement.sectionName}${sectionElement.sectionNum}`);
             currentActiveSection.classList.add('your-active-class');
+
+            // nav bar item
+            if (currentActiveNavItem){
+                currentActiveNavItem.classList.remove('menu__active');    
+            }
+            currentActiveNavItem = document.querySelector(`#listItem${sectionElement.sectionNum}`);
+            currentActiveNavItem.classList.add('menu__active');
+
         }
 
     });
